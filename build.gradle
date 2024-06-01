@@ -36,8 +36,8 @@ checkstyleTest {
 sonar {
 	properties {
 		property "sonar.projectName", "Issuer API"
-		property "sonar.projectKey", ""
-		property "sonar.organization", ""
+		property "sonar.projectKey", "puigcredentials_issuer-api"
+		property "sonar.organization", "puigcredentials"
 		property "sonar.host.url", "https://sonarcloud.io"
 		property "sonar.coverage.exclusions",
 				"src/main/java/es/puig/issuer/IssuerApiApplication.java, "
