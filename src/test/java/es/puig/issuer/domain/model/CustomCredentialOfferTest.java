@@ -16,7 +16,6 @@ class CustomCredentialOfferTest {
     void testConstructorAndGetters() {
         // Arrange
         String expectedCredentialIssuer = "https://credential-issuer.example.com";
-        List<CustomCredentialOffer.Credential> expectedCredentials = List.of(CustomCredentialOffer.Credential.builder().format("format").types(List.of("type")).build());
         Map<String, Grant> expectedGrants = new HashMap<>();
         Grant.TxCode expectedTxCode = new Grant.TxCode(4, "numeric", "description");
         expectedGrants.put("grant1", new Grant("type1", expectedTxCode));
@@ -26,12 +25,10 @@ class CustomCredentialOfferTest {
         CustomCredentialOffer credentialOffer = new CustomCredentialOffer(
                 expectedCredentialIssuer,
                 expectedCredentialConfigurationIds,
-                expectedCredentials,
                 expectedGrants
         );
         // Assert
         assertEquals(expectedCredentialIssuer, credentialOffer.credentialIssuer());
-        assertEquals(expectedCredentials, credentialOffer.credentials());
         assertEquals(expectedGrants, credentialOffer.grants());
         assertEquals(expectedCredentialConfigurationIds, credentialOffer.credentialConfigurationIds());
     }
@@ -40,13 +37,11 @@ class CustomCredentialOfferTest {
     void testSetters() {
         // Arrange
         String newCredentialIssuer = "https://new-credential-issuer.example.com";
-        List<CustomCredentialOffer.Credential> newCredentials = List.of(CustomCredentialOffer.Credential.builder().format("format").types(List.of("type")).build());
         Map<String, Grant> newGrants = new HashMap<>();
         // Act
-        CustomCredentialOffer customCredentialOffer = CustomCredentialOffer.builder().credentialIssuer(newCredentialIssuer).credentials(newCredentials).grants(newGrants).build();
+        CustomCredentialOffer customCredentialOffer = CustomCredentialOffer.builder().credentialIssuer(newCredentialIssuer).grants(newGrants).build();
         // Assert
         assertEquals(newCredentialIssuer, customCredentialOffer.credentialIssuer());
-        assertEquals(newCredentials, customCredentialOffer.credentials());
         assertEquals(newGrants, customCredentialOffer.grants());
     }
 
@@ -54,7 +49,6 @@ class CustomCredentialOfferTest {
     void lombokGeneratedMethodsTest() {
         // Arrange
         String expectedCredentialIssuer = "https://credential-issuer.example.com";
-        List<CustomCredentialOffer.Credential> expectedCredentials = List.of(CustomCredentialOffer.Credential.builder().format("format").types(List.of("type")).build());
         Map<String, Grant> expectedGrants = new HashMap<>();
         Grant.TxCode expectedTxCode = new Grant.TxCode(4, "numeric", "description");
         expectedGrants.put("grant1", new Grant("type1", expectedTxCode));
@@ -64,13 +58,11 @@ class CustomCredentialOfferTest {
         CustomCredentialOffer offer1 = new CustomCredentialOffer(
                 expectedCredentialIssuer,
                 expectedCredentialConfigurationIds,
-                expectedCredentials,
                 expectedGrants
         );
         CustomCredentialOffer offer2 = new CustomCredentialOffer(
                 expectedCredentialIssuer,
                 expectedCredentialConfigurationIds,
-                expectedCredentials,
                 expectedGrants
         );
         // Assert
