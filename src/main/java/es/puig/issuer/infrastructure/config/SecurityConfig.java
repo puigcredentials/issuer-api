@@ -61,6 +61,7 @@ public class SecurityConfig {
                         .pathMatchers(PUBLIC_DISCOVERY_AUTH_SERVER).permitAll()
                         //TODO: securizar este endpoint
                         .pathMatchers(HttpMethod.POST, "/api/v1/credentials").permitAll()
+                        .pathMatchers("/api/v1/deferred-credentials").permitAll()
                         .pathMatchers(HttpMethod.GET, "/api/v1/credential-offer/**").permitAll()
                         .pathMatchers(HttpMethod.GET, "/api/v1/procedures/**").permitAll()
                         .anyExchange().authenticated()
