@@ -36,7 +36,7 @@ public class IssuerApiClientTokenServiceImpl implements IssuerApiClientTokenServ
 
         return webClient.commonWebClient()
                 .post()
-                .uri(authServerConfig.getTokenUri())
+                .uri(getAuthServerInternalDomain() + "/realms/CredentialIssuer/protocol/openid-connect/token")
                 .header(CONTENT_TYPE, CONTENT_TYPE_URL_ENCODED_FORM)
                 .bodyValue(body)
                 .exchangeToMono(response -> {
